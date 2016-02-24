@@ -1,0 +1,40 @@
+<ion-view view-title="Rides" hide-nav-bar="false">
+	<ion-nav-buttons side="secondary">
+        <button class="button" ng-click="logout()">
+                <i class="icon ion-log-out"> Logout</i>
+            </button>
+    </ion-nav-buttons>
+	<ion-content delegate-handle="rides-page">
+
+		<ion-refresher
+				pulling-text="Pull to refresh..."
+				on-refresh="refreshItems()" >
+		</ion-refresher >
+
+
+		<div class="item item-avatar">
+		<img src="{{ currentUserData.profilePic }}">
+		<h2 class="title">{{ currentUserData.name }}</h2>
+			Total Counter : {{ totalCount }} Km
+		</div>
+		<div class="list card item-card" ng-repeat="ride in data.Rides | orderBy : '-timestamp'" >
+				<div class="item" >
+                <h2 >{{ ride.desc }}</h2 >
+                <p> <span am-time-ago="ride.timestamp"></span></p>
+                <span class="category" >#{{ride.month | lowercase}}</span >
+				<span class="calories" > Distance : {{ ride.distance | number }} Km</span >
+					</div>
+			</div >
+
+		<ion-infinite-scroll
+				ng-if="meals.hasMore"
+				on-infinite="nextPage()"
+				immediate-check="false" >
+		</ion-infinite-scroll >
+
+		<div class="padding text-center"
+		     ng-if="!meals.hasMore" >
+			<p >No more results</p >
+		</div >
+	</ion-content >
+</ion-view >

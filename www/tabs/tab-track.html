@@ -1,0 +1,101 @@
+<ion-view view-title="Track" hide-nav-bar="false">
+
+    <ion-nav-buttons side="secondary">
+        <button class="button" ng-click="logout()">
+                <i class="icon ion-log-out"> Logout</i>
+            </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <form name="createForm"
+              novalidate=""
+              ng-submit="trackMeal(createForm)"
+              class="create-form">
+            <ion-list>
+
+                <!-- Title -->
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error':createForm.title.$invalid}">
+                    <span class="input-label">Description</span>
+                    <input type="text"
+                           placeholder="Description"
+                           name="title"
+                           ng-model="formData.title"
+                           ng-required="true">
+                </label>
+
+                <div class="form-errors" ng-messages = "createForm.title.$error">
+                   <div class="form-error" ng-messages="required"> This field is required </div>
+                </div>
+
+                <!-- Category -->
+                <!--<label class="item item-input item-select"-->
+                       <!--ng-class="{'has-error':createForm.category.$invalid}">-->
+                    <!--<div class="input-label">-->
+                        <!--Month-->
+                    <!--</div>-->
+                    <!--<select name="category"-->
+                            <!--ng-model="formData.category"-->
+                            <!--ng-required="true">-->
+                        <!--<option selected-->
+                                <!--value="">Please Choose-->
+                        <!--</option>-->
+                        <!--<option value="01">January</option>-->
+                        <!--<option value="02">February</option>-->
+                        <!--<option value="03">March</option>-->
+                        <!--<option value="04">April</option>-->
+                        <!--<option value="05">May</option>-->
+                        <!--<option value="06">June</option>-->
+                        <!--<option value="07">July</option>-->
+                        <!--<option value="08">August</option>-->
+                        <!--<option value="09">September</option>-->
+                        <!--<option value="10">October</option>-->
+                        <!--<option value="11">November</option>-->
+                        <!--<option value="12">December</option>-->
+                    <!--</select>-->
+                <!--</label>-->
+
+                <!--<div class="form-errors">-->
+                    <!--&lt;!&ndash;ng-messages="createForm.category.$error"&ndash;&gt;-->
+                    <!--&lt;!&ndash;ng-messages-include="templates/form-errors.html" >&ndash;&gt;-->
+                <!--</div>-->
+
+                <!-- Price -->
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error':createForm.price.$invalid}">
+					<span class="input-label">Distance By Km
+					</span>
+                    <span class="calories">{{formData.calories}}Km</span>
+
+                    <div class="range range-royal">
+                        <input type="range"
+                               ng-model="formData.calories"
+                               name="calories"
+                               step="20"
+                               min="0"
+                               max="100000"
+                               value="150">
+                    </div>
+                </label>
+
+                <div class="form-errors">
+                    <!--ng-messages="createForm.calories.$error"-->
+                    <!--ng-messages-include="templates/form-errors.html" >-->
+                </div>
+            </ion-list>
+
+            <div class="padding" ng-show="formData.picture">
+                <div class="picture">
+                    <img ng-src="data:image/jpeg;base64,{{formData.picture}}"
+                         alt=""/>
+                </div>
+            </div>
+
+
+            <div class="padding">
+                <button class="button button-positive button-block"
+                        type="submit">Create
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+html{
+    background: #fff;
+    color: #555;
+    font-family: lato , Arial , sans-serif ;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+
+h1{
+    color: #ffffff;
+    position: absolute;
+    transform: translate(-20% , -150%);
+    width: 1140px;
+    top: 50%;
+    left: 61%;
+    font-size: 55px;
+    /*text-transform: uppercase;*/
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    margin-left: 18%;
+}
+
+
+li{
+    color: #ffffff;
+    left: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../img/car.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.btn {
+    font-size: 25px;
+    display: inline-block;
+    padding: 3% 6% ;
+    text-decoration: none;
+    border-radius: 90px;
+    background: rgba(51, 53, 255, 0.87);
+}
+
+
+.contaner {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
